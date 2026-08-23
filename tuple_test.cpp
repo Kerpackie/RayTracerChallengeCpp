@@ -130,3 +130,13 @@ TEST(ScalarMultiplication, MultiplicationWithFractions) {
     ASSERT_EQ(b.z, 1.5f);
     ASSERT_EQ(b.w, -2.0f);
 }
+
+TEST(ScalarDivision, TupleDivision) {
+    Tuple a = Tuple(1.0f, -2.0f, 3.0f, -4.0f);
+    Tuple b = a / 2;
+
+    ASSERT_EQ(b.x, 0.5f);
+    ASSERT_EQ(b.y, -1.0f);
+    ASSERT_EQ(b.z, 1.5f);
+    ASSERT_EQ(b.w, -2.0f);
+}

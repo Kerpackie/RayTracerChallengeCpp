@@ -24,7 +24,7 @@ struct Tuple {
     Tuple operator-(const Tuple &other) const;
     Tuple operator-() const;
     Tuple operator*(float scalar) const;
-    Tuple operator/(const Tuple &other) const;
+    Tuple operator/(float scalar) const;
 
 private:
     static constexpr float EPSILON = 0.00001f;

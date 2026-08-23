@@ -46,7 +46,7 @@ Tuple Tuple::operator*(float scalar) const {
     return {x * scalar, y * scalar, z * scalar, w * scalar};
 }
 
-Tuple Tuple::operator/(const Tuple& other) const {
-    return {x / other.x, y / other.y, z / other.z, w / other.w};
+Tuple Tuple::operator/(float scalar) const {
+    return {x / scalar, y / scalar, z / scalar, w / scalar};
 }
 
