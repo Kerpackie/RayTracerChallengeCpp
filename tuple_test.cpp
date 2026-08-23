@@ -140,3 +140,28 @@ TEST(ScalarDivision, TupleDivision) {
     ASSERT_EQ(b.z, 1.5f);
     ASSERT_EQ(b.w, -2.0f);
 }
+
+TEST(Magnitude, VectorXOne) {
+    Tuple a = Tuple::vector(1.0f, 0.0f, 0.0f);
+    ASSERT_EQ(a.magnitude(), 1.0f);
+}
+
+TEST(Magnitude, VectorYOne) {
+    Tuple a = Tuple::vector(0.0f, 1.0f, 0.0f);
+    ASSERT_EQ(a.magnitude(), 1.0f);
+}
+
+TEST(Magnitude, VectorZOne) {
+    Tuple a = Tuple::vector(0.0f, 0.0f, 1.0f);
+    ASSERT_EQ(a.magnitude(), 1.0f);
+}
+
+TEST(Magnitude, VectorOneTwoThree) {
+    Tuple a = Tuple::vector(1.0f, 2.0f, 3.0f);
+    ASSERT_EQ(a.magnitude(), std::sqrt(14.0f));
+}
+
+TEST(Magnitude, VectorNegativeOneTwoThree) {
+    Tuple a = Tuple::vector(-1.0f, -2.0f, -3.0f);
+    ASSERT_EQ(a.magnitude(), std::sqrt(14.0f));
+}

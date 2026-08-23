@@ -17,6 +17,12 @@ Tuple Tuple::vector(float x, float y, float z) {
     return {x, y, z, 0.0f};
 }
 
+float Tuple::magnitude() const {
+    return std::sqrt(
+        (x * x) + (y * y) +
+        (z * z) + (w * w));
+}
+
 bool Tuple::operator==(const Tuple& other) const {
     return
     std::abs(x - other.x) < EPSILON &&
