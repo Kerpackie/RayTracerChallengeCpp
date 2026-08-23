@@ -13,11 +13,23 @@ struct Tuple {
     float w;
 
     Tuple(float x, float y, float z, float w);
+
+    static Tuple point(float x, float y, float z);
+    static Tuple vector(float x, float y, float z);
+
+    bool operator==(const Tuple &other) const;
+    bool operator!=(const Tuple &other) const;
+
+    Tuple operator+(const Tuple &other) const;
+    Tuple operator-(const Tuple &other) const;
+    Tuple operator*(const Tuple &other) const;
+    Tuple operator/(const Tuple &other) const;
+
+private:
+    static constexpr float EPSILON = 0.00001f;
 };
 
 
-Tuple point(float x, float y, float z);
-Tuple vector(float x, float y, float z);
 
 
 #endif //RAYTRACERCHALLENGE_TUPLE_H

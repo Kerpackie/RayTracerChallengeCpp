@@ -22,9 +22,8 @@ add_executable(RayTracerChallenge main.cpp)
 target_link_libraries(RayTracerChallenge PRIVATE RayTracerLib)
 
 # 4. Your Test Runner
-add_executable(RayTracerChallenge_tests tuple_test.cpp
-        tuple_test.cpp
-        tuple_test.h)
+add_executable(RayTracerChallenge_tests
+        tuple_test.cpp)
 target_link_libraries(RayTracerChallenge_tests PRIVATE GTest::gtest_main RayTracerLib)
 
 # Enable CLion's visual test runner
