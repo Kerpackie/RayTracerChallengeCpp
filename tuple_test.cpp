@@ -49,10 +49,10 @@ TEST(TupleAddition, AddingTwoTuples) {
     Tuple b = Tuple(-2.0f, 3.0f, 1.0f, 0.0f);
     Tuple c = a + b;
 
-    ASSERT_EQ(c.x, 1.0f);
-    ASSERT_EQ(c.y, 1.0f);
-    ASSERT_EQ(c.z, 6.0f);
-    ASSERT_EQ(c.w, 1.0f);
+    ASSERT_FLOAT_EQ(c.x, 1.0f);
+    ASSERT_FLOAT_EQ(c.y, 1.0f);
+    ASSERT_FLOAT_EQ(c.z, 6.0f);
+    ASSERT_FLOAT_EQ(c.w, 1.0f);
 }
 
 TEST(TupleSubtraction, SubtractingTwoPoints) {
@@ -60,10 +60,10 @@ TEST(TupleSubtraction, SubtractingTwoPoints) {
     Tuple p2 = Tuple::point(5.0f, 6.0f, 7.0f);
     Tuple result = p1 - p2;
 
-    ASSERT_EQ(result.x, -2.0f);
-    ASSERT_EQ(result.y, -4.0f);
-    ASSERT_EQ(result.z, -6.0f);
-    ASSERT_EQ(result.w, 0.0f); // Result should be a vector
+    ASSERT_FLOAT_EQ(result.x, -2.0f);
+    ASSERT_FLOAT_EQ(result.y, -4.0f);
+    ASSERT_FLOAT_EQ(result.z, -6.0f);
+    ASSERT_FLOAT_EQ(result.w, 0.0f); // Result should be a vector
 }
 
 TEST(TupleSubtraction, SubtractingTwoVectors) {
@@ -72,10 +72,10 @@ TEST(TupleSubtraction, SubtractingTwoVectors) {
 
     Tuple v3 = v1 - v2;
 
-    ASSERT_EQ(v3.x, -2.0f);
-    ASSERT_EQ(v3.y, -4.0f);
-    ASSERT_EQ(v3.z, -6.0f);
-    ASSERT_EQ(v3.w, 0.0f);
+    ASSERT_FLOAT_EQ(v3.x, -2.0f);
+    ASSERT_FLOAT_EQ(v3.y, -4.0f);
+    ASSERT_FLOAT_EQ(v3.z, -6.0f);
+    ASSERT_FLOAT_EQ(v3.w, 0.0f);
 
 }
 
@@ -85,10 +85,10 @@ TEST(TupleSubtraction, SubtractingVectorFromAPoint) {
 
     Tuple result = point - vector;
 
-    ASSERT_EQ(result.x, -2.0f);
-    ASSERT_EQ(result.y, -4.0f);
-    ASSERT_EQ(result.z, -6.0f);
-    ASSERT_EQ(result.w, 1.0f);
+    ASSERT_FLOAT_EQ(result.x, -2.0f);
+    ASSERT_FLOAT_EQ(result.y, -4.0f);
+    ASSERT_FLOAT_EQ(result.z, -6.0f);
+    ASSERT_FLOAT_EQ(result.w, 1.0f);
 }
 
 TEST(TupleNegation, SubtractingVectorFromZeroVector) {
@@ -96,72 +96,102 @@ TEST(TupleNegation, SubtractingVectorFromZeroVector) {
     Tuple vector = Tuple::vector(1.0f, -2.0f, 3.0f);
     Tuple result = zero - vector;
 
-    ASSERT_EQ(result.x, -1.0f);
-    ASSERT_EQ(result.y, 2.0f);
-    ASSERT_EQ(result.z, -3.0f);
+    ASSERT_FLOAT_EQ(result.x, -1.0f);
+    ASSERT_FLOAT_EQ(result.y, 2.0f);
+    ASSERT_FLOAT_EQ(result.z, -3.0f);
 }
 
 TEST(TupleNegation, NegatingATupleUsingNegationOperator) {
     Tuple a = Tuple(1.0f, -2.0f, 3.0f, -4.0f);
     Tuple negated = -a;
 
-    ASSERT_EQ(negated.x, -1.0f);
-    ASSERT_EQ(negated.y, 2.0f);
-    ASSERT_EQ(negated.z, -3.0f);
-    ASSERT_EQ(negated.w, 4.0f);
+    ASSERT_FLOAT_EQ(negated.x, -1.0f);
+    ASSERT_FLOAT_EQ(negated.y, 2.0f);
+    ASSERT_FLOAT_EQ(negated.z, -3.0f);
+    ASSERT_FLOAT_EQ(negated.w, 4.0f);
 }
 
 TEST(ScalarMultiplication, ScalingTwoTuples) {
     Tuple a = Tuple(1.0f, -2.0f, 3.0f, -4.0f);
     Tuple b = a * 3.5;
 
-    ASSERT_EQ(b.x, 3.5f);
-    ASSERT_EQ(b.y, -7.0f);
-    ASSERT_EQ(b.z, 10.5f);
-    ASSERT_EQ(b.w, -14.0f);
+    ASSERT_FLOAT_EQ(b.x, 3.5f);
+    ASSERT_FLOAT_EQ(b.y, -7.0f);
+    ASSERT_FLOAT_EQ(b.z, 10.5f);
+    ASSERT_FLOAT_EQ(b.w, -14.0f);
 }
 
 TEST(ScalarMultiplication, MultiplicationWithFractions) {
     Tuple a = Tuple(1.0f, -2.0f, 3.0f, -4.0f);
     Tuple b = a * 0.5;
 
-    ASSERT_EQ(b.x, 0.5f);
-    ASSERT_EQ(b.y, -1.0f);
-    ASSERT_EQ(b.z, 1.5f);
-    ASSERT_EQ(b.w, -2.0f);
+    ASSERT_FLOAT_EQ(b.x, 0.5f);
+    ASSERT_FLOAT_EQ(b.y, -1.0f);
+    ASSERT_FLOAT_EQ(b.z, 1.5f);
+    ASSERT_FLOAT_EQ(b.w, -2.0f);
 }
 
 TEST(ScalarDivision, TupleDivision) {
     Tuple a = Tuple(1.0f, -2.0f, 3.0f, -4.0f);
     Tuple b = a / 2;
 
-    ASSERT_EQ(b.x, 0.5f);
-    ASSERT_EQ(b.y, -1.0f);
-    ASSERT_EQ(b.z, 1.5f);
-    ASSERT_EQ(b.w, -2.0f);
+    ASSERT_FLOAT_EQ(b.x, 0.5f);
+    ASSERT_FLOAT_EQ(b.y, -1.0f);
+    ASSERT_FLOAT_EQ(b.z, 1.5f);
+    ASSERT_FLOAT_EQ(b.w, -2.0f);
 }
 
 TEST(Magnitude, VectorXOne) {
     Tuple a = Tuple::vector(1.0f, 0.0f, 0.0f);
-    ASSERT_EQ(a.magnitude(), 1.0f);
+    ASSERT_FLOAT_EQ(a.magnitude(), 1.0f);
 }
 
 TEST(Magnitude, VectorYOne) {
     Tuple a = Tuple::vector(0.0f, 1.0f, 0.0f);
-    ASSERT_EQ(a.magnitude(), 1.0f);
+    ASSERT_FLOAT_EQ(a.magnitude(), 1.0f);
 }
 
 TEST(Magnitude, VectorZOne) {
     Tuple a = Tuple::vector(0.0f, 0.0f, 1.0f);
-    ASSERT_EQ(a.magnitude(), 1.0f);
+    ASSERT_FLOAT_EQ(a.magnitude(), 1.0f);
 }
 
 TEST(Magnitude, VectorOneTwoThree) {
     Tuple a = Tuple::vector(1.0f, 2.0f, 3.0f);
-    ASSERT_EQ(a.magnitude(), std::sqrt(14.0f));
+    ASSERT_FLOAT_EQ(a.magnitude(), std::sqrt(14.0f));
 }
 
 TEST(Magnitude, VectorNegativeOneTwoThree) {
     Tuple a = Tuple::vector(-1.0f, -2.0f, -3.0f);
-    ASSERT_EQ(a.magnitude(), std::sqrt(14.0f));
+    ASSERT_FLOAT_EQ(a.magnitude(), std::sqrt(14.0f));
+}
+
+TEST(VectorNormalisation, VectorNormalisedFourZeroZero) {
+    Tuple a = Tuple::vector(4.0f, 0.0f, 0.0f);
+    ASSERT_FLOAT_EQ(a.normalised().x, 1.0f);
+    ASSERT_FLOAT_EQ(a.normalised().y, 0.0f);
+    ASSERT_FLOAT_EQ(a.normalised().z, 0.0f);
+    ASSERT_FLOAT_EQ(a.normalised().w, 0.0f);
+}
+
+TEST(VectorNormalisation, VectorNormalisedOneTwoThree) {
+    Tuple a = Tuple::vector(1.0f, 2.0f, 3.0f);
+    float x = 1.0f / std::sqrt(14.0f);
+    float y = 2.0f / std::sqrt(14.0f);
+    float z = 3.0f / std::sqrt(14.0f);
+    ASSERT_FLOAT_EQ(a.normalised().x, x);
+    ASSERT_FLOAT_EQ(a.normalised().y, y);
+    ASSERT_FLOAT_EQ(a.normalised().z, z);
+}
+
+TEST(VectorNormalisation, VectorMagnitudeOfNormalisedVector) {
+    Tuple a = Tuple::vector(1.0f, 2.0f, 3.0f);
+    Tuple normalised = a.normalised();
+    ASSERT_FLOAT_EQ(normalised.magnitude(), 1.0f);
+}
+
+TEST(VectorDotProduct, DotProductOfTwoTuples) {
+    Tuple a = Tuple::vector(1.0f, 2.0f, 3.0f);
+    Tuple b = Tuple::vector(2.0f, 3.0f, 4.0f);
+    ASSERT_FLOAT_EQ(a.dotProduct(b), 20.0f);
 }

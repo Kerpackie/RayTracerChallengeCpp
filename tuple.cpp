@@ -23,6 +23,24 @@ float Tuple::magnitude() const {
         (z * z) + (w * w));
 }
 
+Tuple Tuple::normalised() const {
+    float magnitude = this->magnitude();
+    return {
+        x / magnitude,
+        y / magnitude,
+        z / magnitude,
+        w / magnitude };
+}
+
+float Tuple::dotProduct(const Tuple &other) const {
+    return
+        (x * other.x) +
+        (y * other.y) +
+        (z * other.z) +
+        (w * other.w);
+}
+
+
 bool Tuple::operator==(const Tuple& other) const {
     return
     std::abs(x - other.x) < EPSILON &&

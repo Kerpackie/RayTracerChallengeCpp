@@ -17,7 +17,10 @@ struct Tuple {
     static Tuple point(float x, float y, float z);
     static Tuple vector(float x, float y, float z);
 
-    float magnitude() const;
+    [[nodiscard]] float magnitude() const;
+    [[nodiscard]] Tuple normalised() const;
+
+    float dotProduct(const Tuple &other) const;
 
     bool operator==(const Tuple &other) const;
     bool operator!=(const Tuple &other) const;
