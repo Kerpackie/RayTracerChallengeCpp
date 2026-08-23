@@ -67,5 +67,14 @@ TEST(TupleOperators, PointSubtraction) {
 }
 
 TEST(TupleOperators, VectorSubtraction) {
-    
+    Tuple v1 = Tuple::vector(3.0f, 2.0f, 1.0f);
+    Tuple v2 = Tuple::vector(5.0f, 6.0f, 7.0f);
+
+    Tuple v3 = v1 - v2;
+
+    ASSERT_EQ(v3.x, -2.0f);
+    ASSERT_EQ(v3.y, -4.0f);
+    ASSERT_EQ(v3.z, -6.0f);
+    ASSERT_EQ(v3.w, 0.0f);
+
 }
