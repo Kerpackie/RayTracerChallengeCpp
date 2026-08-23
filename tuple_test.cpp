@@ -110,3 +110,14 @@ TEST(TupleNegation, NegatingATupleUsingNegationOperator) {
     ASSERT_EQ(negated.z, -3.0f);
     ASSERT_EQ(negated.w, 4.0f);
 }
+
+TEST(ScalarMultiplication, ScalingTwoTuples) {
+    Tuple a = Tuple(1.0f, -2.0f, 3.0f, -4.0f);
+    Tuple b = a * 3.5;
+
+    ASSERT_EQ(b.x, 3.5f);
+    ASSERT_EQ(b.y, -7.0f);
+    ASSERT_EQ(b.z, 10.5f);
+    ASSERT_EQ(b.w, -14.0f);
+
+}
