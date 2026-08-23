@@ -34,6 +34,11 @@ Tuple Tuple::operator-(const Tuple& other) const {
     return {x - other.x, y - other.y, z - other.z, w - other.w};
 }
 
+Tuple Tuple::operator-() const {
+    return { -x, -y, -z, -w };
+}
+
+
 Tuple Tuple::operator*(const Tuple& other) const {
     return {x * other.x, y * other.y, z * other.z, w * other.w};
 }

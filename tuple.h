@@ -22,6 +22,7 @@ struct Tuple {
 
     Tuple operator+(const Tuple &other) const;
     Tuple operator-(const Tuple &other) const;
+    Tuple operator-() const;
     Tuple operator*(const Tuple &other) const;
     Tuple operator/(const Tuple &other) const;
 

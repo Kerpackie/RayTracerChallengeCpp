@@ -44,7 +44,7 @@ TEST(TupleEquality, TupleOutsideEpsilon) {
     ASSERT_FALSE(a == b);
 }
 
-TEST(TupleOperators, TupleAddition) {
+TEST(TupleAddition, AddingTwoTuples) {
     Tuple a = Tuple(3.0f, -2.0f, 5.0f, 1.0f);
     Tuple b = Tuple(-2.0f, 3.0f, 1.0f, 0.0f);
     Tuple c = a + b;
@@ -55,7 +55,7 @@ TEST(TupleOperators, TupleAddition) {
     ASSERT_EQ(c.w, 1.0f);
 }
 
-TEST(TupleOperators, PointSubtraction) {
+TEST(TupleSubtraction, SubtractingTwoPoints) {
     Tuple p1 = Tuple::point(3.0f, 2.0f, 1.0f);
     Tuple p2 = Tuple::point(5.0f, 6.0f, 7.0f);
     Tuple result = p1 - p2;
@@ -66,7 +66,7 @@ TEST(TupleOperators, PointSubtraction) {
     ASSERT_EQ(result.w, 0.0f); // Result should be a vector
 }
 
-TEST(TupleOperators, VectorSubtraction) {
+TEST(TupleSubtraction, SubtractingTwoVectors) {
     Tuple v1 = Tuple::vector(3.0f, 2.0f, 1.0f);
     Tuple v2 = Tuple::vector(5.0f, 6.0f, 7.0f);
 
@@ -79,7 +79,7 @@ TEST(TupleOperators, VectorSubtraction) {
 
 }
 
-TEST(TupleOperators, SubtractVectorFromPoint) {
+TEST(TupleSubtraction, SubtractingVectorFromAPoint) {
     Tuple point = Tuple::point(3.0f, 2.0f, 1.0f);
     Tuple vector = Tuple::vector(5.0f, 6.0f, 7.0f);
 
@@ -89,4 +89,24 @@ TEST(TupleOperators, SubtractVectorFromPoint) {
     ASSERT_EQ(result.y, -4.0f);
     ASSERT_EQ(result.z, -6.0f);
     ASSERT_EQ(result.w, 1.0f);
+}
+
+TEST(TupleNegation, SubtractingVectorFromZeroVector) {
+    Tuple zero = Tuple::vector(0.0f, 0.0f, 0.0f);
+    Tuple vector = Tuple::vector(1.0f, -2.0f, 3.0f);
+    Tuple result = zero - vector;
+
+    ASSERT_EQ(result.x, -1.0f);
+    ASSERT_EQ(result.y, 2.0f);
+    ASSERT_EQ(result.z, -3.0f);
+}
+
+TEST(TupleNegation, NegatingATupleUsingNegationOperator) {
+    Tuple a = Tuple(1.0f, -2.0f, 3.0f, -4.0f);
+    Tuple negated = -a;
+
+    ASSERT_EQ(negated.x, -1.0f);
+    ASSERT_EQ(negated.y, 2.0f);
+    ASSERT_EQ(negated.z, -3.0f);
+    ASSERT_EQ(negated.w, 4.0f);
 }
