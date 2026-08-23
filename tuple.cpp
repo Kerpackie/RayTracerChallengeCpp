@@ -42,7 +42,7 @@ Tuple Tuple::operator-() const {
     return { -x, -y, -z, -w };
 }
 
-Tuple Tuple::operator*(double scalar) const {
+Tuple Tuple::operator*(float scalar) const {
     return {x * scalar, y * scalar, z * scalar, w * scalar};
 }
 
