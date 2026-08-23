@@ -78,3 +78,15 @@ TEST(TupleOperators, VectorSubtraction) {
     ASSERT_EQ(v3.w, 0.0f);
 
 }
+
+TEST(TupleOperators, SubtractVectorFromPoint) {
+    Tuple point = Tuple::point(3.0f, 2.0f, 1.0f);
+    Tuple vector = Tuple::vector(5.0f, 6.0f, 7.0f);
+
+    Tuple result = point - vector;
+
+    ASSERT_EQ(result.x, -2.0f);
+    ASSERT_EQ(result.y, -4.0f);
+    ASSERT_EQ(result.z, -6.0f);
+    ASSERT_EQ(result.w, 1.0f);
+}
