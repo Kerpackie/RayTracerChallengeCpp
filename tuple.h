@@ -20,7 +20,8 @@ struct Tuple {
     [[nodiscard]] float magnitude() const;
     [[nodiscard]] Tuple normalised() const;
 
-    float dotProduct(const Tuple &other) const;
+    static float dotProduct(const Tuple &a, const Tuple &b);
+    static Tuple crossProduct(const Tuple &a, const Tuple &b);
 
     bool operator==(const Tuple &other) const;
     bool operator!=(const Tuple &other) const;

@@ -193,5 +193,16 @@ TEST(VectorNormalisation, VectorMagnitudeOfNormalisedVector) {
 TEST(VectorDotProduct, DotProductOfTwoTuples) {
     Tuple a = Tuple::vector(1.0f, 2.0f, 3.0f);
     Tuple b = Tuple::vector(2.0f, 3.0f, 4.0f);
-    ASSERT_FLOAT_EQ(a.dotProduct(b), 20.0f);
+    ASSERT_FLOAT_EQ(Tuple::dotProduct(a, b), 20.0f);
+}
+
+TEST(VectorCrossProduct, CrossProductOfTwoVectors) {
+    Tuple a = Tuple::vector(1.0f, 2.0f, 3.0f);
+    Tuple b = Tuple::vector(2.0f, 3.0f, 4.0f);
+
+    Tuple c = Tuple::vector(-1.0f, 2.0f, -1.0f);
+    Tuple d = Tuple::vector(1.0f, -2.0f, 1.0f);
+
+    ASSERT_EQ(Tuple::crossProduct(a, b), c);
+    ASSERT_EQ(Tuple::crossProduct(b, a), d);
 }

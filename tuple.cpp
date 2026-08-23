@@ -32,14 +32,20 @@ Tuple Tuple::normalised() const {
         w / magnitude };
 }
 
-float Tuple::dotProduct(const Tuple &other) const {
+float Tuple::dotProduct(const Tuple &a, const Tuple &b) {
     return
-        (x * other.x) +
-        (y * other.y) +
-        (z * other.z) +
-        (w * other.w);
+        (a.x * b.x) +
+        (a.y * b.y) +
+        (a.z * b.z) +
+        (a.w * b.w);
 }
 
+Tuple Tuple::crossProduct(const Tuple &a, const Tuple &b) {
+    return vector(
+        (a.y * b.z) - (a.z * b.y),
+        (a.z * b.x) - (a.x * b.z),
+        (a.x * b.y) - (a.y * b.x));
+}
 
 bool Tuple::operator==(const Tuple& other) const {
     return
