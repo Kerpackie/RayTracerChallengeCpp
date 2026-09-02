@@ -3,6 +3,7 @@
 //
 
 #include "tuple.h"
+#include <cmath>
 
 #include <gtest/gtest.h>
 

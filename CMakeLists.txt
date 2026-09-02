@@ -15,7 +15,8 @@ FetchContent_MakeAvailable(googletest)
 # 2. Your core Ray Tracer code (Everything EXCEPT main.cpp)
 add_library(RayTracerLib
         tuple.cpp
-        tuple.h)
+        tuple.h
+)
 
 # 3. Your Main Application
 add_executable(RayTracerChallenge main.cpp)
