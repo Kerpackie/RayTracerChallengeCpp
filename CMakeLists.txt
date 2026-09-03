@@ -18,6 +18,8 @@ add_library(RayTracerLib
         tuple.h
         Colour.cpp
         Colour.h
+        Canvas.cpp
+        Canvas.h
 )
 
 # 3. Your Main Application
@@ -27,7 +29,9 @@ target_link_libraries(RayTracerChallenge PRIVATE RayTracerLib)
 # 4. Your Test Runner
 add_executable(RayTracerChallenge_tests
         tuple_test.cpp
-        ColourTest.cpp)
+        ColourTest.cpp
+        CanvasTest.cpp
+)
 target_link_libraries(RayTracerChallenge_tests PRIVATE GTest::gtest_main RayTracerLib)
 
 # Enable CLion's visual test runner
