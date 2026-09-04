@@ -20,6 +20,8 @@ add_library(RayTracerLib
         Colour.h
         Canvas.cpp
         Canvas.h
+        PPMExporter.cpp
+        PPMExporter.h
 )
 
 # 3. Your Main Application
@@ -31,6 +33,7 @@ add_executable(RayTracerChallenge_tests
         tuple_test.cpp
         ColourTest.cpp
         CanvasTest.cpp
+        PPMExporterTest.cpp
 )
 target_link_libraries(RayTracerChallenge_tests PRIVATE GTest::gtest_main RayTracerLib)
 
