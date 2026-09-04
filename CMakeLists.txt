@@ -16,6 +16,12 @@ FetchContent_MakeAvailable(googletest)
 add_library(RayTracerLib
         tuple.cpp
         tuple.h
+        Colour.cpp
+        Colour.h
+        Canvas.cpp
+        Canvas.h
+        PPMExporter.cpp
+        PPMExporter.h
 )
 
 # 3. Your Main Application
@@ -24,7 +30,11 @@ target_link_libraries(RayTracerChallenge PRIVATE RayTracerLib)
 
 # 4. Your Test Runner
 add_executable(RayTracerChallenge_tests
-        tuple_test.cpp)
+        tuple_test.cpp
+        ColourTest.cpp
+        CanvasTest.cpp
+        PPMExporterTest.cpp
+)
 target_link_libraries(RayTracerChallenge_tests PRIVATE GTest::gtest_main RayTracerLib)
 
 # Enable CLion's visual test runner
